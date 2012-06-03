@@ -1,3 +1,5 @@
+# Original from oh-my-zsh plugins.
+
 function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
