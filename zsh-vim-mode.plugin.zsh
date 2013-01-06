@@ -4,7 +4,7 @@ function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
 
-zle -N zle-line-init
+# zle -N zle-line-init
 zle -N zle-keymap-select
 
 bindkey -v
@@ -26,6 +26,10 @@ bindkey -M viins '^o' vi-backward-kill-word
 bindkey -M vicmd 'yy' vi-yank-whole-line
 bindkey -M vicmd 'Y' vi-yank-eol
 
+bindkey -M vicmd 'y.' vi-yank-whole-line
+bindkey -M vicmd 'c.' vi-change-whole-line
+bindkey -M vicmd 'd.' kill-whole-line
+
 bindkey -M vicmd 'u' undo
 bindkey -M vicmd 'U' redo
 
@@ -41,7 +45,11 @@ bindkey '^n' history-substring-search-down
 bindkey -M vicmd '\-' vi-repeat-find
 bindkey -M vicmd '_' vi-rev-repeat-find
 
+bindkey -M viins '\e.' insert-last-word
+bindkey -M vicmd '\e.' insert-last-word
+
 bindkey -M viins '^a' beginning-of-line
+bindkey -M viins '^e' end-of-line
 
 # if mode indicator wasn't setup by theme, define default
 if [[ "$MODE_INDICATOR" == "" ]]; then
